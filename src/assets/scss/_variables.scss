@@ -1,0 +1,23 @@
+//	VARIABLES
+$mainLight: #FFE200;
+$mainDark: #000082;
+
+$white: #ffffff;
+$black: #000000;
+
+.mainLight{color: $mainLight;}
+.mainDark{color: $mainDark;}
+.white{color: $white;}
+.black{color: $black;}
+
+$mapPadding: (
+    "section": 6rem 0,
+    "section-xs": 3rem 0,
+);
+
+$mapFontsize: (
+    "h2": 3.6rem,
+    "h2-xs": 9vw,
+    "h3": 2.8rem,
+    "h3-xs": 8vw,
+);

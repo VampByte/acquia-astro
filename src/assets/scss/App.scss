@@ -1,0 +1,45 @@
+/* Core Imports */
+@import "fonts";
+@import "variables";
+@import "funciones";
+@import "mixins";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden !important;
+}
+
+body {
+  @extend %fontMontserratRegular;
+  position: relative;
+  overflow-x: hidden !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0;
+}
+
+/* Icons SVG */
+.cross-center {
+  /* Centramos verticalmente el ícono con el texto */
+  display     : flex;
+  align-items : center;
+}
+.svg-icon {
+  /* Le asignamos un tamaño y un margen al ícono */
+  width        : 1rem;
+  height       : 1rem;
+ /*  margin-right : 0.5rem; */
+  fill         : currentColor; /* currentColor actua como una variable tomando el valor que tenga el color de texto del padre del elemento. Si estás utilizando vectores que poseen distintos rellenos, omite esta línea de código*/
+}
+
+
+@import "accordion";
