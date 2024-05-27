@@ -9,7 +9,8 @@ const faqs = [
         answer: "The authors of the courses are mostly Atheros team members, who worked on tens of digital solutions for big international companies, projects for small startups, and internal Atheros products. By solving the most sophisticated problems in the fields, they gained proper knowledge, which is now available for you.",
     },
     {
-        question: "How is the course different from other UX/UI design courses?",
+        question:
+            "How is the course different from other UX/UI design courses?",
         answer: "The key aspect is that this course provides a clear overview of the whole design process and principles, that represent necessary information for being successful within the industry. You will also get direct support from the author of this course, who is ready to answer all your questions and care about your next steps.",
     },
     {
@@ -27,25 +28,198 @@ let openIndex = null;
 function handleToggle(index) {
     openIndex = index === openIndex ? null : index;
 }
-
 ---
 
 <div class="faq-container">
-    {faqs.map((faq, index) => (
-        <details open={index === openIndex} class="faq-item">
-            <summary class="tabTitulo faq-title flex items-center content-between relative gap-4 sm:w-11/12 xs:w-11/12" onclick={handleToggle(index)}>
-                    <img src="https://usil.edu.pe/sites/default/files/2024-05/bandera-mx.png" alt="Bandera México" />
+    {
+        faqs.map((faq, index) => (
+            <details open={index === openIndex} class="faq-item">
+                <summary
+                    class="tabTitulo faq-title flex items-center content-between relative gap-4 sm:w-11/12 xs:w-11/12"
+                    onclick={handleToggle(index)}
+                >
+                    <img
+                        src="https://usil.edu.pe/sites/default/files/2024-05/bandera-mx.png"
+                        alt="Bandera México"
+                    />
                     {faq.question}
-            </summary>
-            <div class="faq-content" style={{ overflow: "hidden", transition: "height 0.2s ease-out" }}>
-                <p class="contentP">{faq.answer}</p>
-            </div>
-        </details>
-    ))}
+                </summary>
+                <div
+                    class="faq-content"
+                    style={{
+                        overflow: "hidden",
+                        transition: "height 0.2s ease-out",
+                    }}
+                >
+                    <p class="contentP">{faq.answer}</p>
+                </div>
+            </details>
+        ))
+    }
 </div>
 
+<style lang="scss">
+    @import "../assets/scss/App.scss";
+
+    $mainDark: #002165;
+    $mainLight: #2fc58e;
+    $mainText: #484848;
+
+    .mainLight {
+        color: $mainLight;
+    }
+    .mainDark {
+        color: $mainDark;
+    }
+    .white {
+        color: $white;
+    }
+    .black {
+        color: $black;
+    }
+
+    :root {
+        --white: #fff;
+        --background: #060d23;
+        --background-hover: #383d4f;
+        --primary-blue: #00e0fe;
+        --blue-gray: #f4fcff;
+    }
+
+    .faq-container {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 12rem;
+        max-width: 1000px;
+        padding: 2rem;
+        border-radius: 1em;
+        /* background-color: var(--background); */
+    }
+
+    details {
+        font-size: 1rem;
+        margin: 0 auto;
+        width: 100%;
+        border-radius: 0.5rem;
+        position: relative;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            /* background-color: var(--background-hover); */
+
+            svg {
+                stroke: var(--primary-blue);
+            }
+        }
+
+        &[open] {
+            /* background-color: var(--background-hover); */
+
+            .faq-title {
+                color: var(--primary-blue);
+            }
+        }
+    }
+
+    summary {
+        background-color: $mainDark;
+        border-radius: 1rem;
+        user-select: none;
+        cursor: pointer;
+        font-weight: 600;
+        display: flex !important;
+        list-style: none;
+        padding: 0.5rem 1rem;
+        align-items: center;
+        position: relative;
+
+        &:before {
+            content: "▼";
+            width: auto;
+            height: min-content;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            right: 20px;
+            transform-origin: center;
+            color: $white;
+            font-size: 1.8rem;
+            z-index: 1;
+            transition: transform 0.3s ease;
+            @include mobile() {
+                right: 10px;
+            }
+            @include xs() {
+                font-size: 1.2rem;
+            }
+        }
+
+        &.rotated::before {
+            color: $mainDark;
+            transform: rotate(180deg);
+        }
+
+        svg {
+            stroke: var(--white);
+        }
+
+        &:hover {
+            .faq-title {
+                color: var(--primary-blue);
+            }
+        }
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        details[open] & {
+            background-color: $mainLight;
+            /* img {
+            stroke: var(--primary-blue);
+            transform: rotate(180deg);
+        } */
+        }
+    }
+
+    .faq-title {
+        color: var(--white);
+        transition: all 250ms ease-in-out;
+    }
+
+    .faq-content {
+        color: $mainText;
+        padding: 2rem 1rem 1rem 1rem;
+        font-weight: 300;
+        line-height: 1.5;
+    }
+
+    .expand-icon {
+        pointer-events: none;
+        position: absolute;
+        right: 1rem;
+        color: $white;
+        transition: all 150ms ease-out;
+        width: 1rem;
+        height: auto;
+    }
+
+    .tabTitulo {
+        color: $white;
+        @include xs() {
+            font-size: 0.8rem;
+        }
+    }
+</style>
+
 <script>
-    
     document.querySelectorAll("details > summary").forEach((summary) => {
         summary.parentNode.addEventListener("toggle", function () {
             window.requestAnimationFrame(() => {
@@ -56,13 +230,15 @@ function handleToggle(index) {
                 }
             });
         });
-    
+
         summary.addEventListener("click", function () {
-            document.querySelectorAll("details > summary").forEach((otherSummary) => {
-                if (otherSummary !== summary) {
-                    otherSummary.classList.remove("rotated");
-                }
-            });
+            document
+                .querySelectorAll("details > summary")
+                .forEach((otherSummary) => {
+                    if (otherSummary !== summary) {
+                        otherSummary.classList.remove("rotated");
+                    }
+                });
             document.querySelectorAll("details").forEach((details) => {
                 if (details !== summary.parentNode) {
                     details.removeAttribute("open");

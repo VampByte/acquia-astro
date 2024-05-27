@@ -1,0 +1,73 @@
+---
+
+---
+
+<section id="intro" class="intro">
+    <div class="boxContainer mx-auto">
+        <div class="columns-1 text-center">
+            <div class="boxContent boxContentTitle">
+                <h2 class="fechaH2 font-montserrat font-bold mainDark text-3xl">Fechas: del 14 al 18 de octubre</h2>
+            </div><!-- boxContent -->
+            <div class="grid sm:grid-cols-2	xs:grid-cols-1 my-10 text-center sm:gap-6 xs:gap-1">
+                <div class="boxContent">
+                    <h2 class="contentH2 mainDark font-montserrat font-bold text-xl xs:text-md">Modalidad:</h2>
+                    <p class="text-18426-mainText leading-5 xs:text-sm">
+                        <span class="font-montserrat font-bold">Presencial</span><br>
+                        USIL, campus Pachacámac (Av. Pista Asfaltada, fundo La Carolina, sección B, parcela 1)
+                    </p>
+                </div><!-- boxContent -->
+                <div class="boxContent mainDark">
+                    <h2 class="contentH2 mainDark font-montserrat font-bold text-xl xs:text-md">Dirigido a:</h2>
+                    <p class="text-18426-mainText leading-5 xs:text-sm">
+                        <span class="font-montserrat font-bold">estudiantes y egresados de pregrado</span> de todas las carreras de ingeniería agroindustrial y/o afines. Profesionales relacionados en el ámbito de la ingeniería, tecnología, la innovación y la sostenibilidad en la industria agroalimentaria.
+                    </p>
+                </div><!-- boxContent -->
+            </div><!-- col -->
+        </div><!-- col -->
+        
+        <div class="columns-1 text-center">
+            <p class="text-18426-mainText leading-5">Sé parte de este evento académico donde <span class="font-montserrat font-bold">aprenderás cómo liderar la agroindustria</span> y sus áreas afines, aprovechando las nuevas tecnologías como la IA y robótica, bajo el eje temático de La innovación como camino para ser el país de mayor agroindustria, Perú modelo de crecimiento para el mundo. Además, te inspirarás con los casos de éxito y conectarás con otros profesionales y colegas.</p>
+        </div><!-- col -->
+    </div><!-- container -->
+</section>
+
+<style lang="scss">
+    @import '../../assets/scss/App.scss';
+
+    $mainDark: #0548BD;
+    .mainDark {color: $mainDark !important;}
+
+    .intro{
+        .boxContainer{
+            width: 1000px;
+            @include laptop(){width: 700px;}
+            @include tablet(){
+                width: auto;
+                padding: 0 1rem;
+            }
+            @include mobile(){
+                width: auto;
+                padding: 0 1rem;
+            }
+        }
+        .boxContent{
+            @apply border-2 border-solid rounded-2xl p-4 inline-block my-4 border-18426-mainDark;
+
+            &Title{
+                @apply m-0 px-0;
+                width: 100%;
+                @include laptop(){margin-top: 2rem;}
+                @include tablet(){margin-top: 2rem;}
+                @include mobile(){
+                    width: auto;
+                    padding: .2rem .8rem;
+                    margin-top: 2rem;
+                }
+
+                .fechaH2{@include xs(){font-size: 5vw;}}
+            }
+
+            .contentH2{margin-bottom: .5rem;}
+        }
+    }
+</style>
