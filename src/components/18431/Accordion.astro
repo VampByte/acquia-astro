@@ -3,25 +3,31 @@
 https://usil.edu.pe/sites/default/files/2024-05/bandera-col.png
 https://usil.edu.pe/sites/default/files/2024-05/bandera-eeuu.png
 https://usil.edu.pe/sites/default/files/2024-05/bandera-es.png
-https://usil.edu.pe/sites/default/files/2024-05/bandera-mx.png */
+https://usil.edu.pe/sites/default/files/2024-05/bandera-mx.png 
+https://usil.edu.pe/sites/default/files/2024-05/logo-u-politecnica-madrid.png*/
 const destinos = [
     {
         bandera: "https://usil.edu.pe/sites/default/files/2024-05/bandera-es.png",
         titulo: "Inteligencia Artificial e Innovación Tecnológica",
         intro: "Estudia en la Universidad Politécnica de Madrid y capacítate en Inteligencia Artificial e Innovación Tecnológica en España. Además, realiza visitas empresariales y culturales en la ciudad de Madrid. Todo de la mano de nuestra partner:",
+        logo: "https://usil.edu.pe/sites/default/files/2024-05/logo-u-politecnica-madrid.png",
+        aplica: "Facultad de Ciencias de la Salud ",
+        duracion: "Del 1 al 5 de julio",
+        limite: "17 de mayo",
     },
     {
         bandera: "https://usil.edu.pe/sites/default/files/2024-05/bandera-es.png",
         titulo: "Inteligencia Artificial e Innovación Tecnológica",
         intro: "Estudia en la Universidad Politécnica de Madrid y capacítate en Inteligencia Artificial e Innovación Tecnológica en España. Además, realiza visitas empresariales y culturales en la ciudad de Madrid. Todo de la mano de nuestra partner:",
+        logo: "https://usil.edu.pe/sites/default/files/2024-05/logo-u-politecnica-madrid.png",
     },
 ];
 
-let openIndex = null;
+let openIndex = 0;
 
 function handleToggle(index) {
-    openIndex = index === openIndex ? null : index;
-    return openIndex;
+    openIndex = index === openIndex ? 0 : index;
+    return openIndex.toString();
 }
 ---
 
@@ -40,13 +46,24 @@ function handleToggle(index) {
                     {destino.titulo}
                 </summary>
                 <div
-                    class="faq-content"
+                    class="faq-content flex flex-col items-center"
                     style={{
                         overflow: "hidden",
                         transition: "height 0.2s ease-out",
                     }}
                 >
                     <p class="contentP text-center">{destino.intro}</p>
+                    <img
+                        src={destino.logo}
+                        alt="Logo"
+                    />
+                    <p>Aplica: {destino.aplica} | Duración: {destino.duracion}</p>
+                    <p>Fecha límite de postulación: {destino.limite}</p>
+                    <a class="btn-conoce flex items-center gap-2 rounded-md px-4 py-3 my-6">
+                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg> Conoce más aquí
+                    </a>
+                    <p class="font-bold">Charla informativa:</p>
+                    <a class="seleccionarA underline">Seleccionar Charla aquí</a>
                 </div>
             </details>
         ))
@@ -59,6 +76,7 @@ function handleToggle(index) {
     $mainDark: #002165;
     $mainLight: #2fc58e;
     $mainText: #484848;
+    $btnConoce: #0D52D6;
 
     .mainLight {
         color: $mainLight;
@@ -194,6 +212,21 @@ function handleToggle(index) {
         padding: 2rem 1rem 1rem 1rem;
         font-weight: 300;
         line-height: 1.5;
+
+        .btn-conoce{
+            background-color: $btnConoce;
+            color: $white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            &:hover{
+                background-color: lighten($btnConoce, 10%);
+            }
+        }
+
+        .seleccionarA{
+            color: $btnConoce;
+            cursor: pointer;
+        }
     }
 
     .expand-icon {
