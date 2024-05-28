@@ -1,0 +1,86 @@
+---
+const procesos = [
+    {
+        "paso": "Paso 1",
+        "titulo": "Envio de trabajos",
+        "contenido": "Envía tu artículo científico antes del 30 de agosto de 2024 al correo <a href='mailto:coneia2024@usil.edu.pe'>coneia2024@usil.edu.pe</a>"
+    },
+    {
+        "paso": "Paso 2",
+        "titulo": "Evaluación",
+        "contenido": "El Comité Científico evaluará todos los artículos enviados y los autores serán notificados antes del 1 de octubre de 2024 sobre la aceptación. Los trabajos enviados no deben estar publicados o bajo revisión en ninguna otra conferencia o publicación nacional o internacional."
+    },
+    {
+        "paso": "Paso 3",
+        "titulo": "Publicación",
+        "contenido": "Todos los artículos aceptados se publicarán en la revista Journal of agroindustrial and sustainable Food systems (ISSN 2955-8352). <a href='https://revistas.usil.edu.pe/index.php/jasfs/index' target='_blank'>Ver publicación</a>"
+    }
+]
+---
+<section id="proceso" class="proceso">
+    <div class="boxContainer mx-auto">
+        <div class="gridProcesos grid grid-cols-3 gap-8 sm:grid-cols-1 xs:grid-cols-1">
+            {procesos.map((proceso, i)=>(
+                <div :key={i} class="boxProcesos text-center">
+                    <div class="header">
+                        <h3 class="procesoH3 font-bold uppercase text-white">{proceso.paso}</h3>
+                    </div>
+                    <div class="boxContenido">
+                        <h4 class="procesoH4 uppercase font-bold">{proceso.titulo}</h4>
+                        <p class="procesoP" set:html={proceso.contenido}></p>
+                    </div>
+                </div><!-- boxProcesos -->
+            ))}
+        </div><!-- boxProcesos -->
+    </div><!-- boxContainer -->
+</section>
+
+<style lang="scss">
+     @import '../../assets/scss/App.scss';
+
+    .proceso{
+        .boxContainer {
+            width: 1000px;
+            @include tablet() {
+                width: auto;
+                padding: 0 1rem;
+                margin: 5rem 1rem;
+            }
+            @include mobile() {
+                width: auto;
+                padding: 0 1rem;
+                margin: 3rem 1rem;
+            }
+
+            .gridProcesos {
+                .header{
+                    background-color: #0047BA;
+                    border-start-start-radius: 1rem;
+                    border-start-end-radius: 1rem;
+                    padding: 1rem 0;
+                    @include mobile(){padding: .5rem 0;}
+
+                    .procesoH3{
+                        font-size: 24px;
+                    }
+                }
+
+                .boxContenido{
+                    background-color: #E6E7E8;
+                    padding: 1rem;
+                    border-end-start-radius: 1rem;
+                    border-end-end-radius: 1rem;
+
+                    .procesoH4{
+                        font-size: 18px;
+                    }
+
+                    .procesoP{
+                        @include tablet(){font-size: .8rem;}
+                        @include mobile(){font-size: 0.9rem;}
+                    }
+                }
+            }
+        }
+    }
+</style>

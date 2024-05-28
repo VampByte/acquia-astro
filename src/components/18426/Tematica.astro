@@ -1,169 +1,68 @@
 ---
+const tematicaTextos = [
+    "Biomasa, bioenergía y economía circular",
+    "Agricultura regenerativa y aplicación de tecnologías de precisión y monitoreo",
+    "Innovación y producción de envases biodegradables aplicado a industria",
+    "Agronegocios, agroexportación y marketing para ingresar a nuevos mercados",
+    "Tecnologías emergentes para la obtención de compuestos bioactivos",
+    "Evaluación sensorial de alimentos",
+    "El ing. Agroindustrial en el campo laboral",
+    "Nuevas tecnologías en conservación de alimentos mínimamente procesados",
+    "Alimentos funcionales y nutracéuticos",
+    "Aditivos alimentarios como mejora en los procesos",
+    "Tecnología e innovación de envases",
+    "Biotecnología agroalimentaria",
+    "Calidad, inocuidad y regulación alimentaria"
+]
 
+const comiteTextos = [
+    "Doris Bazán Chávez - Presidente",
+    "Diego Herrera CANO - Vicepresidente",
+    "María Heredia Montoya - Secretaria",
+    "Erika Shinzato Uehara - Secretaria de Economía",
+    "Andrea Guzmán Martínez - Vocal",
+    "Luis Olivera Montenegro - Coordinador",
+    "Perla Paredes Concepción - Coordinadora",
+    "Luis Marzano Barrerda - Coordinador",
+    "Alejandra Bugarin Ferre - Coordinadora",
+    "Neyma Perez Cubas - Coordinadora"
+]
 ---
 
-<section>
+<section id="tematica" class="tematica">
     <div
-        class="boxTematica border-4 border-solid rounded-2xl border-18426-mainLight p-4"
+        class="boxTematica mx-auto block my-20 border-4 border-solid rounded-2xl border-18426-mainLight p-10"
     >
-        <h2 class="text-align-center text-center heading-2">
+        <h2 class="text-align-center text-center heading-2 block !mb-4">
             <span class="coh-color-white">TEMÁTICA</span>
         </h2>
-        <p>
-            <span class="coh-color-purple-light-90">► </span><span
-                class="coh-color-white"
-                >Biomasa, bioenergía y economía circular</span
-            >
-        </p>
-        <span class="coh-color-white">
+        {tematicaTextos.map((texto, index) => (
+            <p class="textosP" :key={index}>
+                <span class="coh-color-purple-light-90">► </span><span
+                    class="coh-color-white"
+                    >{texto}</span
+                >
+            </p>
             <hr
                 class="border-18426-mainLight border-solid border-0 border-b-2 my-1"
             />
-        </span>
-        <p>
-            <span class="coh-color-purple-light-90">►</span><span
-                class="coh-color-white"
-            >
-                Agricultura regenerativa y aplicación de tecnologías de
-                precisión y monitoreo</span
-            >
-        </p>
-        <span class="coh-color-white">
+        ))}
+    </div><!-- boxTematica -->
+
+    <div
+        class="boxTematica mx-auto block my-20 border-4 border-solid rounded-2xl border-18426-mainDark p-10"
+    >
+        <h2 class="text-align-center text-center heading-2 block !mb-4">
+            <span class="coh-color-white">TEMÁTICA</span>
+        </h2>
+        {comiteTextos.map((texto, index) => (
+            <p class="textosP" :key={index}>
+                <span class="coh-color-purple-light-90">► </span>{texto}
+            </p>
             <hr
-                class="border-18426-mainLight border-solid border-0 border-b-2 my-1"
+                class="border-18426-mainDark border-solid border-0 border-b-2 my-1"
             />
-        </span>
-        <p>
-            <span class="coh-color-purple-light-90">►</span><span
-                class="coh-color-white"
-            >
-                Innovación y producción de envases biodegradables aplicado a
-                industria</span
-            >
-        </p>
-        <span class="coh-color-white">
-            <hr
-                class="border-18426-mainLight border-solid border-0 border-b-2 my-1"
-            />
-        </span>
-        <p>
-            <span class="coh-color-purple-light-90">► </span><span
-                class="coh-color-white"
-                >Agronegocios, agroexportación y marketing para ingresar a
-                nuevos mercados</span
-            >
-        </p>
-        <span class="coh-color-white">
-            <hr
-                class="border-18426-mainLight border-solid border-0 border-b-2 my-1"
-            />
-        </span>
-        <p>
-            <span class="coh-color-purple-light-90">►</span><span
-                class="coh-color-white"
-            >
-                Tecnologías emergentes para la obtención de compuestos
-                bioactivos</span
-            >
-        </p>
-        <span class="coh-color-white">
-            <hr
-                class="border-18426-mainLight border-solid border-0 border-b-2 my-1"
-            />
-        </span>
-        <p>
-            <span class="coh-color-purple-light-90">►</span><span
-                class="coh-color-white">Evaluación sensorial de alimentos</span
-            >
-        </p>
-        <span class="coh-color-white">
-            <hr
-                class="border-18426-mainLight border-solid border-0 border-b-2 my-1"
-            />
-        </span>
-        <p>
-            <span class="coh-color-purple-light-90">►</span><span
-                class="coh-color-white"
-            >
-                El ing. Agroindustrial en el campo laboral</span
-            >
-        </p>
-        <span class="coh-color-white">
-            <hr
-                class="border-18426-mainLight border-solid border-0 border-b-2 my-1"
-            />
-        </span>
-        <p>
-            <span class="coh-color-purple-light-90">►</span><span
-                class="coh-color-white"
-            >
-                Nuevas tecnologías en conservación de alimentos mínimamente
-                procesados</span
-            >
-        </p>
-        <span class="coh-color-white">
-            <hr
-                class="border-18426-mainLight border-solid border-0 border-b-2 my-1"
-            />
-        </span>
-        <p>
-            <span class="coh-color-purple-light-90">►</span><span
-                class="coh-color-white"
-            >
-                Alimentos funcionales y nutracéuticos</span
-            >
-        </p>
-        <span class="coh-color-white">
-            <hr
-                class="border-18426-mainLight border-solid border-0 border-b-2 my-1"
-            />
-        </span>
-        <p>
-            <span class="coh-color-purple-light-90">►</span><span
-                class="coh-color-white"
-            >
-                Aditivos alimentarios como mejora en los procesos</span
-            >
-        </p>
-        <span class="coh-color-white">
-            <hr
-                class="border-18426-mainLight border-solid border-0 border-b-2 my-1"
-            />
-        </span>
-        <p>
-            <span class="coh-color-purple-light-90">►</span><span
-                class="coh-color-white"
-            >
-                Tecnología e innovación de envases</span
-            >
-        </p>
-        <span class="coh-color-white">
-            <hr
-                class="border-18426-mainLight border-solid border-0 border-b-2 my-1"
-            />
-        </span>
-        <p>
-            <span class="coh-color-purple-light-90">►</span><span
-                class="coh-color-white"
-            >
-                Biotecnología agroalimentaria</span
-            >
-        </p>
-        <span class="coh-color-white">
-            <hr
-                class="border-18426-mainLight border-solid border-0 border-b-2 my-1"
-            />
-        </span>
-        <p>
-            <span class="coh-color-purple-light-90">►</span><span
-                class="coh-color-white"
-            >
-                Calidad, inocuidad y regulación alimentaria</span
-            >
-        </p>
-        <hr
-            class="border-18426-mainLight border-solid border-0 border-b-2 my-1"
-        />
+        ))}
     </div><!-- boxTematica -->
 </section>
 
@@ -171,17 +70,19 @@
     @import '../../assets/scss/App.scss';
     
     .boxTematica {
-        width: 1000px;
-        @include laptop() {
-            width: 700px;
-        }
+        width: 800px;
         @include tablet() {
-            width: auto;
+            width: 700px;
             padding: 0 1rem;
+            margin: 5rem auto;
         }
         @include mobile() {
             width: auto;
             padding: 0 1rem;
+            margin: 3rem 1rem;
+        }
+        hr{
+            &:last-child{margin-bottom: 2rem !important;}
         }
     }
 </style>

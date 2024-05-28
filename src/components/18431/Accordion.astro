@@ -1,25 +1,19 @@
 ---
-const faqs = [
+/* https://usil.edu.pe/sites/default/files/2024-05/bandera-arg.png
+https://usil.edu.pe/sites/default/files/2024-05/bandera-col.png
+https://usil.edu.pe/sites/default/files/2024-05/bandera-eeuu.png
+https://usil.edu.pe/sites/default/files/2024-05/bandera-es.png
+https://usil.edu.pe/sites/default/files/2024-05/bandera-mx.png */
+const destinos = [
     {
-        question: "How long does the course take?",
-        answer: "The video content takes more than 4.5 hours. In addition, you can test gained knowledge on 30 quizzes and practical tasks.",
+        bandera: "https://usil.edu.pe/sites/default/files/2024-05/bandera-es.png",
+        titulo: "Inteligencia Artificial e Innovación Tecnológica",
+        intro: "Estudia en la Universidad Politécnica de Madrid y capacítate en Inteligencia Artificial e Innovación Tecnológica en España. Además, realiza visitas empresariales y culturales en la ciudad de Madrid. Todo de la mano de nuestra partner:",
     },
     {
-        question: "Who teaches courses on Atheros Learning?",
-        answer: "The authors of the courses are mostly Atheros team members, who worked on tens of digital solutions for big international companies, projects for small startups, and internal Atheros products. By solving the most sophisticated problems in the fields, they gained proper knowledge, which is now available for you.",
-    },
-    {
-        question:
-            "How is the course different from other UX/UI design courses?",
-        answer: "The key aspect is that this course provides a clear overview of the whole design process and principles, that represent necessary information for being successful within the industry. You will also get direct support from the author of this course, who is ready to answer all your questions and care about your next steps.",
-    },
-    {
-        question: "Do I get a certificate after completing a course?",
-        answer: "Yes, after successfully finishing the quizzes within the course, you can download a certificate, proving all gained knowledge and skills.",
-    },
-    {
-        question: "Are there any hidden fees within the course?",
-        answer: "Absolutely not! You will gain all benefits and features with the one-time payment, unlocking the course.",
+        bandera: "https://usil.edu.pe/sites/default/files/2024-05/bandera-es.png",
+        titulo: "Inteligencia Artificial e Innovación Tecnológica",
+        intro: "Estudia en la Universidad Politécnica de Madrid y capacítate en Inteligencia Artificial e Innovación Tecnológica en España. Además, realiza visitas empresariales y culturales en la ciudad de Madrid. Todo de la mano de nuestra partner:",
     },
 ];
 
@@ -27,22 +21,23 @@ let openIndex = null;
 
 function handleToggle(index) {
     openIndex = index === openIndex ? null : index;
+    return openIndex;
 }
 ---
 
 <div class="faq-container">
     {
-        faqs.map((faq, index) => (
+        destinos.map((destino, index) => (
             <details open={index === openIndex} class="faq-item">
                 <summary
                     class="tabTitulo faq-title flex items-center content-between relative gap-4 sm:w-11/12 xs:w-11/12"
                     onclick={handleToggle(index)}
                 >
                     <img
-                        src="https://usil.edu.pe/sites/default/files/2024-05/bandera-mx.png"
+                        src={destino.bandera}
                         alt="Bandera México"
                     />
-                    {faq.question}
+                    {destino.titulo}
                 </summary>
                 <div
                     class="faq-content"
@@ -51,7 +46,7 @@ function handleToggle(index) {
                         transition: "height 0.2s ease-out",
                     }}
                 >
-                    <p class="contentP">{faq.answer}</p>
+                    <p class="contentP text-center">{destino.intro}</p>
                 </div>
             </details>
         ))
@@ -59,7 +54,7 @@ function handleToggle(index) {
 </div>
 
 <style lang="scss">
-    @import "../assets/scss/App.scss";
+    @import "/src/assets/scss/App.scss";
 
     $mainDark: #002165;
     $mainLight: #2fc58e;
@@ -146,7 +141,7 @@ function handleToggle(index) {
             right: 20px;
             transform-origin: center;
             color: $white;
-            font-size: 1.8rem;
+            font-size: 2rem;
             z-index: 1;
             transition: transform 0.3s ease;
             @include mobile() {
