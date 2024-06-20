@@ -1,0 +1,89 @@
+---
+
+---
+
+<section class="postular">
+    <div class="boxContainer mx-auto">
+        <h2 class="text-center text-19021-blueLight">
+            <span class="font-bold">¿Cómo postular?</span><br/>
+            ¡Sigue estos pasos!
+        </h2>
+        <p class="text-center mt-8">Utiliza el formato de <span class="font-bold">CV disponible <a href="#" class="underline">aquí.</a></span> Complétalo y envíalo en la sección principal de esta página. Asegúrate de que tu CV incluya un enlace a un video de presentación breve, que cumpla con las siguientes pautas:</p>
+        <div class="grid grid-cols-2 gap-4 mt-12 sm:grid-cols-1 xs:grid-cols-1">
+            <div class="boxPasos grid grid-cols-[auto,1fr] gap-8 xs:grid-cols-1">
+                <img src="https://usil.edu.pe/sites/default/files/2024-06/postular-duracion.png" alt="Duración" class="postularIMG postularIMGduracion"/>
+                <div class="boxTexto">
+                    <h3 class="font-bold text-19021-blueLight mb-2">Duración:</h3>
+                    <p>1 minuto a 1 minuto y medio</p>
+                </div><!-- boxTexto -->
+            </div><!-- boxPasos -->
+            <div class="boxPasos grid grid-cols-[auto,1fr] gap-8 xs:grid-cols-1 xs:mt-12">
+                <img src="https://usil.edu.pe/sites/default/files/2024-06/postular-contenido.png" alt="Contenido" class="postularIMG postularIMGcontenido"/>
+                <div class="boxTexto">
+                    <h3 class="font-bold text-19021-blueLight mb-2">Contenido:</h3>
+                    <ul class="contenidoUL">
+                        <li class="contenidoLI text-19021-mainText">
+                            Tu nombre y algunas características personales que
+                            te distingan y consideres importantes.
+                        </li>
+                        <li class="contenidoLI text-19021-mainText">
+                            Menciona tu carrera y por qué decidiste elegirla.
+                        </li>
+                        <li class="contenidoLI text-19021-mainText">
+                            Cuéntanos por qué deberíamos seleccionarte como
+                            Trainee USIL.
+                        </li>
+                    </ul>
+                </div><!-- boxTexto -->
+            </div><!-- boxPasos -->
+        </div><!-- grid -->
+    </div><!-- boxContainer -->
+</section><!-- container -->
+
+<style lang="scss">
+    @import "/src/assets/scss/App.scss";
+    
+    $mainDark: #002165;
+    $mainLight: #c8ff32;
+    $mainText: #666666;
+    $blueLight: #0d52d6;
+
+    .boxContainer {
+        width: 1000px;
+        @include tablet() {
+            width: auto;
+            padding: 0 1rem;
+            margin: 5rem 1rem;
+        }
+        @include mobile() {
+            width: auto;
+            padding: 0 1rem;
+            margin: 3rem 1rem;
+        }
+    }
+
+    .postularIMG{
+        width: 100%;
+        height: auto;
+        justify-self: center;
+
+        &duracion{
+            width: 5rem;
+            @include sm(){width: 4rem;}
+        }
+        &contenido{
+            width: 4.5rem;
+            @include sm(){width: 4rem;}
+        }
+    }
+
+    .contenidoUL{
+        .contenidoLI{
+            list-style: disc;
+            margin-left: 1rem;
+            &::marker{
+                color: $blueLight;
+            }
+        }
+    }
+</style>

@@ -13,28 +13,91 @@ https://usil.edu.pe/sites/default/files/2024-05/logo-eafit.png
 https://usil.edu.pe/sites/default/files/2024-05/logo-rosario.png
 https://usil.edu.pe/sites/default/files/2024-05/logo-ucam.png
 
+PDFS
+https://usil.edu.pe/sites/default/files/2024-06/FACT_SHEET_STUDY_TOUR_ANAHUAC_MEXICO.pdf
+https://usil.edu.pe/sites/default/files/2024-06/FACT_SHEET_STUDY_TOUR_ARGENTINA_ARQUI.pdf
+https://usil.edu.pe/sites/default/files/2024-06/FACT_SHEET_STUDY_TOUR_ARGENTINA_COMUNICACIONES.pdf
+https://usil.edu.pe/sites/default/files/2024-06/FACT_SHEET_STUDY_TOUR_CUNY_EEUU.pdf
+https://usil.edu.pe/sites/default/files/2024-06/FACT_SHEET_STUDY_TOUR_EAFIT_COLOMBIA.pdf
+https://usil.edu.pe/sites/default/files/2024-06/FACT_SHEET_STUDY_TOUR_UCAM_ESPANA.pdf
+https://usil.edu.pe/sites/default/files/2024-06/FACT_SHEET_STUDY_TOUR_UPOLITECNICA_ESPANA.pdf
+https://usil.edu.pe/sites/default/files/2024-06/FACT_SHEET_STUDY_TOUR_UROSARIO_COLOMBIA.pdf
+
+<script>
+    // Array de Charlas
+    // Este es un array que contiene todas las charlas disponibles.
+    const charlas = [
+        "Experience New York study tour",
+        "Salud y deportes en España",
+        "Turismo y Gastronomía en Cancun",
+        "Inteligencia Artificial e Innovación Tecnológica",
+        "El impacto de Perú en la Colombia de hoy",
+        "Comunicación, Arte y Cultura en Argentina",
+        "Innovación y emprendimiento",
+        "Arquitectura y Tradición argentina",
+        "Vive la experiencia en Educación Inicial en Alemania",
+    ];
+
+    // Esta función toma un selector y una función de callback.
+    // Intenta seleccionar el elemento con el selector dado.
+    // Si el elemento existe, llama a la función de callback con el elemento como argumento.
+    // Si el elemento no existe, intenta de nuevo después de 500 milisegundos.
+    function checkElement(selector, callback) {
+        let el = document.querySelector(selector);
+        if (el) {
+            callback(el);
+        } else {
+            setTimeout(() => checkElement(selector, callback), 500);
+        }
+    }
+
+    // Usa la función para esperar a que el div exista
+    // Aquí usamos la función checkElement para esperar a que el elemento con la clase 'hs-form' exista.
+    // Cuando el elemento existe, ejecutamos la función de callback.
+    checkElement('.hs-form', (hsForm) => {
+        // Selector de Carreras
+        // Aquí seleccionamos el elemento select que contiene las carreras.
+        const selector = hsForm.querySelector('select[name="internacional___study_tours"]');
+
+        // Aquí establecemos un intervalo que se ejecuta cada 500 milisegundos.
+        let checkExist = setInterval(function() {
+            // Aquí seleccionamos todos los botones con la clase 'coh-style-usil-card-link'.
+            const inscribirmeCTA = document.querySelectorAll('.seleccionarA');
+            // Si hay al menos un botón, ejecutamos el siguiente código.
+            if (inscribirmeCTA.length > 0) {
+                // Itera sobre cada botón
+                // Aquí agregamos un event listener a cada botón.
+                // Cuando se hace clic en un botón, ejecutamos la siguiente función.
+                inscribirmeCTA.forEach((boton, index) => {
+                    boton.addEventListener('click', () => {
+                        // Si el índice del botón es menor que la longitud del array de charlas, ejecutamos el siguiente código.
+                        if (index < charlas.length) {
+                            // Hace lo miso pero valida index nada mas
+                            // selector.selectedIndex = index;
+
+                            // Aquí obtenemos la charla correspondiente al índice del botón.
+                            const charla = charlas[index];
+                            // Aquí iteramos sobre cada opción del selector.
+                            // Si el valor de la opción es igual al de la charla, seleccionamos esa opción y disparamos el evento 'change'.
+                            Array.from(selector.options).forEach((option, i) => {
+                                if (option.value === charla) {
+                                    selector.focus();
+                                    selector.selectedIndex = i;
+                                    selector.blur();
+                                    selector.dispatchEvent(new Event('change'));
+                                }
+                            });
+                        }
+                    });
+                });
+                // Si hay al menos un botón, detenemos el intervalo.
+                clearInterval(checkExist);
+            }
+        }, 500); // Verifica cada 500ms
+    });
+</script>
 */
 const destinos = [
-    {
-        bandera: "2024-05/bandera-es.png",
-        titulo: "Inteligencia Artificial e Innovación Tecnológica",
-        intro: "Estudia en la Universidad Politécnica de Madrid y capacítate en Inteligencia Artificial e Innovación Tecnológica en España. Además, realiza visitas empresariales y culturales en la ciudad de Madrid. Todo de la mano de nuestra partner:",
-        logo: "2024-05/logo-u-politecnica-madrid.png",
-        aplica: "Facultad de Ciencias de la Salud",
-        duracion: "Del 1 al 5 de julio",
-        limite: "30 de mayo",
-        pdf: "2024-05/STUDY-TOUR-ESPANA-MADRID.pdf",
-    },
-    {
-        bandera: "2024-05/bandera-mx.png",
-        titulo: "Turismo y Gastronomía en Cancun",
-        intro: "¡Amplía tus conocimientos en hotelería, turismo y gastronomía! Visita empresas, amplía tu networking y pásala sensacional en recorridos turísticos. Todo de la mano de nuestra partner:",
-        logo: "2024-05/logo-anahuac_0.png",
-        aplica: "Facultad de Hotelería, Turismo y Gastronomía",
-        duracion: "Del 10 al 17 de julio",
-        limite: "30 de mayo",
-        pdf: "2024-05/FACT-SHEET-STUDY-TOUR-MEXICO.pdf",
-    },
     {
         bandera: "2024-05/bandera-eeuu.png",
         titulo: "Experience New York study tour",
@@ -42,8 +105,8 @@ const destinos = [
         logo: "2024-05/logo-college-staten.png",
         aplica: "Todas las Facultades",
         duracion: "Del 14 al 20 de julio",
-        limite: "30 de mayo",
-        pdf: "2024-05/COLLEGE-OF-STATEN-tour-factshet.pdf",
+        limite: "30 de junio",
+        pdf: "2024-06/FACT_SHEET_STUDY_TOUR_CUNY_EEUU.pdf",
     },
     {
         bandera: "2024-05/bandera-es.png",
@@ -52,8 +115,28 @@ const destinos = [
         logo: "2024-05/logo-ucam.png",
         aplica: "Faculta de Ciencias de la Salud | Carrera: Ciencias de la Actividad Física y el Deporte",
         duracion: "Del 14 al 20 de julio",
-        limite: "30 de mayo",
-        pdf: "2024-05/FACT-SHEET-STUDY-TOUR-ESPANA.pdf",
+        limite: "30 de junio",
+        pdf: "2024-06/FACT_SHEET_STUDY_TOUR_UCAM_ESPANA.pdf",
+    },
+    {
+        bandera: "2024-05/bandera-mx.png",
+        titulo: "Turismo y Gastronomía en Cancun",
+        intro: "¡Amplía tus conocimientos en hotelería, turismo y gastronomía! Visita empresas, amplía tu networking y pásala sensacional en recorridos turísticos. Todo de la mano de nuestra partner:",
+        logo: "2024-05/logo-anahuac_0.png",
+        aplica: "Facultad de Hotelería, Turismo y Gastronomía",
+        duracion: "Del 10 al 17 de julio",
+        limite: "30 de junio",
+        pdf: "2024-06/FACT_SHEET_STUDY_TOUR_ANAHUAC_MEXICO.pdf",
+    },
+    {
+        bandera: "2024-05/bandera-es.png",
+        titulo: "Inteligencia Artificial e Innovación Tecnológica",
+        intro: "Estudia en la Universidad Politécnica de Madrid y capacítate en Inteligencia Artificial e Innovación Tecnológica en España. Además, realiza visitas empresariales y culturales en la ciudad de Madrid. Todo de la mano de nuestra partner:",
+        logo: "2024-05/logo-u-politecnica-madrid.png",
+        aplica: "Facultad de Ingenería",
+        duracion: "Del 1 al 5 de julio",
+        limite: "30 de junio",
+        pdf: "2024-06/FACT_SHEET_STUDY_TOUR_UPOLITECNICA_ESPANA.pdf",
     },
     {
         bandera: "2024-05/bandera-col.png",
@@ -62,28 +145,18 @@ const destinos = [
         logo: "2024-05/logo-rosario.png",
         aplica: "Facultad de Derecho",
         duracion: "Del 4 al 10 de agosto",
-        limite: "30 de mayo",
-        pdf: "2024-05/FACT-SHEET-STUDY-TOUR-COLOMBIA.pdf",
+        limite: "30 de junio",
+        pdf: "2024-06/FACT_SHEET_STUDY_TOUR_UROSARIO_COLOMBIA.pdf",
     },
     {
         bandera: "2024-05/bandera-arg.png",
         titulo: "Comunicación, Arte y Cultura en Argentina",
         intro: "Potencia tus conocimientos con nuestro Study Tour en Argentina, en el que podrás participar de master classes de comunicación, arte y cultura, así como visitas a empresas y a diversos lugares turísticos dentro de la ciudad de Buenos Aires. Todo de la mano de nuestra partner:",
-        logo: "",
+        logo: "2024-05/uade_una_gran_universidad_0.png",
         aplica: "Facultad de Comunicación / Facultad de Artes y Humanidades",
         duracion: "Del 7 al 10 de octubre",
-        limite: "14 de junio",
-        pdf: "2024-05/STUDY-TOUR-ARGENTINA.pdf",
-    },
-    {
-        bandera: "2024-05/bandera-arg.png",
-        titulo: "Arquitectura y Tradición argentina",
-        intro: "Viaja a Buenos Aires para sumergirte en su maravillosa arquitectura, ampliar tu networking, realizar recorridos culturales y ser parte de la 19 Bienal Internacional de Arquitectura. Todo de la mano de nuestra partner:",
-        logo: "",
-        aplica: "Facultad de Arquitectura, Urbanismo y Territorio",
-        duracion: "Del 7 al 10 de octubre",
-        limite: "30 de mayo",
-        pdf: "2024-05/FACT-SHEET-STUDY-TOUR-ARGENTINA-ARQUI.pdf",
+        limite: "30 de junio",
+        pdf: "2024-06/FACT_SHEET_STUDY_TOUR_ARGENTINA_COMUNICACIONES.pdf",
     },
     {
         bandera: "2024-05/bandera-col.png",
@@ -92,17 +165,28 @@ const destinos = [
         logo: "2024-05/logo-eafit.png",
         aplica: "Facultad de Ciencias Empresariales",
         duracion: "Del 20 al 26 de octubre",
-        limite: "30 de mayo",
-        pdf: "2024-05/FACT-SHEET-TOUR-COLOMBIA-MEDELLIN.pdf",
+        limite: "30 de junio",
+        pdf: "2024-06/FACT_SHEET_STUDY_TOUR_EAFIT_COLOMBIA.pdf",
     },
     {
+        bandera: "2024-05/bandera-arg.png",
+        titulo: "Arquitectura y Tradición argentina",
+        intro: "Viaja a Buenos Aires para sumergirte en su maravillosa arquitectura, ampliar tu networking, realizar recorridos culturales y ser parte de la 19 Bienal Internacional de Arquitectura. Todo de la mano de nuestra partner:",
+        logo: "2024-05/uade_una_gran_universidad_0.png",
+        aplica: "Facultad de Arquitectura, Urbanismo y Territorio",
+        duracion: "Del 7 al 10 de octubre",
+        limite: "30 de junio",
+        pdf: "2024-06/FACT_SHEET_STUDY_TOUR_ARGENTINA_ARQUI.pdf",
+    },
+    
+    {
         bandera: "2024-05/bandera-al.png",
-        titulo: "Experiencia de Enseñanza en Alemania",
+        titulo: "Educación Global: Inmersión en la Pedagogía alemana",
         intro: "Refuerza tus conocimientos en pedagogía y amplía tu networking en Alemania, donde podrás aprender de la Educación alemana en HELMECA y realizar prácticas en Escuelas infantiles, así como realizar visitas y excursiones en la ciudad de Múnich. Todo de la mano de nuestra partner:",
-        logo: "",
+        logo: "2024-05/channels4_profile_0.jpg",
         aplica: "Facultad de Educación",
         duracion: "Del 20 al 26 de octubre",
-        limite: "15 de junio",
+        limite: "30 de junio",
         pdf: "",
     },
 ];
@@ -311,6 +395,9 @@ function handleToggle(index) {
             &:hover{
                 background-color: lighten($btnConoce, 10%);
             }
+        }
+        .contentP{
+            text-wrap: pretty;
         }
 
         .seleccionarA{

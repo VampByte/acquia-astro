@@ -3,6 +3,9 @@ export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
+			flex: {
+				'no-grow-shrink': '0 0 auto',
+			},
 			fontFamily: {
 				'montserrat': ['Montserrat', 'sans-serif'],
 				fontWeight: {
@@ -24,6 +27,8 @@ export default {
 			'18426-mainDark': '#0548BD',
 			'18426-mainText': '#002664',
 			'18426-mainLight': '#B2FF41',
+			'19021-blueLight': '#0D52DE',
+			'19021-mainText': '#666666'
 		},
 		screens: {
 			'2xl': { 'min': '1500px' , 'max': '1919px' },

@@ -1,0 +1,97 @@
+---
+const perfiles = [
+    {
+        imagen: "2024-06/perfil-1.png",
+        strong: "Nivel de inglés:",
+        texto: "Intermedio - Avanzado",
+    },
+    {
+        imagen: "2024-06/perfil-2.png",
+        strong: "Periodo de egreso:",
+        texto: "Culminado en 2023-II y 2024-I",
+    },
+    {
+        imagen: "2024-06/perfil-3_0.png",
+        strong: "Excelencia académica:",
+        texto: "Décimo, quinto y tercio superior.",
+    },
+    {
+        imagen: "2024-06/perfil-4_0.png",
+        strong: "Habilidad en manejo",
+        texto: "de herramientas digitales.",
+    },
+    {
+        imagen: "2024-06/perfil-5.png",
+        strong: "Experiencia previa:",
+        texto: "1 año en prácticas preprofesionales",
+    },
+];
+---
+
+<section id="perfiles" class="perfiles">
+    <div class="boxContainer mx-auto">
+        <h2 class="text-center font-bold mainLight">
+            Descubre el Perfil del Trainee
+        </h2>
+        <p class="text-center white">
+            Comunicación, Marketing, Administración,<br />
+            Arte y Diseño Empresarial
+        </p>
+        <div class="flex justify-center flex-wrap mt-12">
+            {
+                perfiles.map((perfil, index) => (
+                    <div class="flex flex-col items-center p-4 flex-no-grow-shrink w-1/3 xs:w-full sm:w-1/2">
+                        <img
+                            class="w-min mb-4 h-22 md:h-20 sm:h-20 xs:h-16"
+                            src={`https://usil.edu.pe/sites/default/files/${perfil.imagen}`}
+                            alt={`Perfil-${index + 1}`}
+                        />
+                        <p class="text-center white">
+                            <>
+                                <span class="font-bold">{perfil.strong}</span>
+                                <br />
+                            </>
+                            {perfil.texto}
+                        </p>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    @import "/src/assets/scss/App.scss";
+
+    $mainDark: #002165;
+    $mainLight: #c8ff32;
+    $mainText: #484848;
+    $blueLight: #0d52d6;
+
+    .mainLight {
+        color: $mainLight;
+    }
+    .mainDark {
+        color: $mainDark;
+    }
+    .white {
+        color: $white;
+    }
+    .black {
+        color: $black;
+    }
+
+    .boxContainer {
+        width: 1000px;
+        @include tablet() {
+            width: auto;
+            padding: 0 1rem;
+            margin: 5rem 1rem;
+        }
+        @include mobile() {
+            width: auto;
+            padding: 0 1rem;
+            margin: 3rem 1rem;
+        }
+    }
+</style>
