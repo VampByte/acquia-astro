@@ -47,3 +47,10 @@ $dev: false; // Set to true for development, false for production
   fill: currentColor;
   /* currentColor actua como una variable tomando el valor que tenga el color de texto del padre del elemento. Si estás utilizando vectores que poseen distintos rellenos, omite esta línea de código*/
 }
+
+.fontSizeH2{
+  font-size: mapFontsize("h2");
+  @include xs(){
+    font-size: mapFontsize("h2-xs");
+  }
+}

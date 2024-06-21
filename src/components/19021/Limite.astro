@@ -1,0 +1,42 @@
+---
+
+---
+
+<section id="limite" class="limite">
+    <div class="boxContainer mx-auto">
+        <div class="gridLimite grid grid-cols-[auto,1fr] gap-8 items-end justify-center sm:grid-cols-1 sm:gap-4 xs:grid-cols-1 xs:gap-4">
+            <img src="https://usil.edu.pe/sites/default/files/2024-06/trainee-limite.png" class="block w-full h-auto md:w-72 sm:w-8/12 sm:mx-auto sm:ml-12 xs:w-11/12" alt="USIL Trainee Program">
+            <p class="mainP text-left sm:text-center xs:text-center text-19021-blueDark">Si estás listo para transformar tu futuro y ser parte de una comunidad que valora la innovación y la excelencia, no dudes en postular.</p>
+        </div><!-- gridLimite -->
+    </div><!-- boxContainer -->
+</section>
+
+<style lang="scss">
+    @import "/src/assets/scss/App.scss";
+    
+    $mainDark: #002165;
+    $mainLight: #c8ff32;
+    $mainText: #666666;
+    $blueLight: #0d52d6;
+
+    .boxContainer {
+        width: 1000px;
+        @include tablet() {
+            width: auto;
+            padding: 0 1rem;
+            margin: 5rem 1rem;
+        }
+        @include mobile() {
+            width: auto;
+            padding: 0 1rem;
+            margin: 3rem 1rem;
+        }
+    }
+
+    .mainP{
+        font-size: 22px !important;
+        text-wrap: pretty;
+        margin-bottom: 1rem;
+        @include xs(){font-size: 1rem !important;}
+    }
+</style>

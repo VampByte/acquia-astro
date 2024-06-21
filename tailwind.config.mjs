@@ -8,16 +8,16 @@ export default {
 			},
 			fontFamily: {
 				'montserrat': ['Montserrat', 'sans-serif'],
-				fontWeight: {
-					'light': 300,
-					'regular': 400,
-					'medium': 500,
-					'semibold': 600,
-					'bold': 700,
-					'extrabold': 800,
-					'black': 900
-				}
 			},
+			fontWeight: {
+				'light': 300,
+				'regular': 400,
+				'medium': 500,
+				'semibold': 600,
+				'bold': 700,
+				'extrabold': 800,
+				'black': 900
+			}
 		},
 		colors: {
 			transparent: 'transparent',
@@ -28,7 +28,8 @@ export default {
 			'18426-mainText': '#002664',
 			'18426-mainLight': '#B2FF41',
 			'19021-blueLight': '#0D52DE',
-			'19021-mainText': '#666666'
+			'19021-mainText': '#666666',
+			'19021-blueDark': '#002663'
 		},
 		screens: {
 			'2xl': { 'min': '1500px' , 'max': '1919px' },
